@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-base text-text-primary font-body antialiased;
+    background-image: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.1), transparent 55%),
+      radial-gradient(circle at 80% 60%, rgba(34, 211, 238, 0.07), transparent 50%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+  }
+  /* Visible keyboard focus everywhere — never remove outline without a replacement */
+  :focus-visible {
+    outline: 2px solid #8B5CF6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #0A0E17; }
+  ::-webkit-scrollbar-thumb { background: #232B3D; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2E3850; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-border rounded-xl2 shadow-card;
+  }
+  .text-gradient {
+    @apply bg-spectrum-gradient bg-clip-text text-transparent;
+  }
+}
